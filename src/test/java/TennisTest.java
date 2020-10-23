@@ -22,11 +22,66 @@ public class TennisTest {
         assertEquals("Fifteen-Love", tennis.getScore());
     }
 
-//    @Test
-//    public void testPlayerCanScoreAgain() {
-//        Tennis tennis = new Tennis();
-//        tennis.score("player one");
-//        tennis.score("player one");
-//        assertEquals("Fifteen-Love", tennis.getScore());
-//    }
+    @Test
+    public void testPlayerCanScoreTwice() {
+        Tennis tennis = new Tennis();
+        tennis.score("player one");
+        tennis.score("player one");
+        assertEquals("Thirty-Love", tennis.getScore());
+    }
+
+    @Test
+    public void testPlayerCanScoreThreeTimes() {
+        Tennis tennis = new Tennis();
+        tennis.score("player one");
+        tennis.score("player one");
+        tennis.score("player one");
+        assertEquals("Forty-Love", tennis.getScore());
+    }
+
+    @Test
+    public void testPlayerTwoCanScore() {
+        Tennis tennis = new Tennis();
+        tennis.score("player two");
+        assertEquals("Love-Fifteen", tennis.getScore());
+    }
+
+
+    @Test
+    public void testPlayerTwoCanScoreTwice() {
+        Tennis tennis = new Tennis();
+        tennis.score("player two");
+        tennis.score("player two");
+        assertEquals("Love-Thirty", tennis.getScore());
+    }
+
+    @Test
+    public void testPlayerTwoCanScoreThreeTimes() {
+        Tennis tennis = new Tennis();
+        tennis.score("player two");
+        tennis.score("player two");
+        tennis.score("player two");
+        assertEquals("Love-Forty", tennis.getScore());
+    }
+
+    @Test
+    public void testBothPlayersCanScore() {
+        Tennis tennis = new Tennis();
+        tennis.score("player two");
+        tennis.score("player two");
+        tennis.score("player one");
+        assertEquals("Fifteen-Thirty", tennis.getScore());
+    }
+
+    @Test
+    public void testDeuce() {
+        Tennis tennis = new Tennis();
+        for (int i = 0; i < 3; i++)
+        {
+            tennis.score("player two");
+            tennis.score("player one");
+
+        }
+        assertEquals("Deuce", tennis.getScore());
+    }
 }
