@@ -119,4 +119,50 @@ public class TennisTest {
         }
         assertEquals("Deuce", tennis.getScore());
     }
+
+    @Test
+    public void testOutrightWinForPlayerOne() {
+        Tennis tennis = new Tennis();
+        for (int i = 0; i < 4; i++)
+        {
+            tennis.score("player one");
+        }
+        assertEquals("Player one wins", tennis.getScore());
+    }
+
+    @Test
+    public void testOutrightWinForPlayerTwo() {
+        Tennis tennis = new Tennis();
+        for (int i = 0; i < 4; i++)
+        {
+            tennis.score("player two");
+        }
+        assertEquals("Player two wins", tennis.getScore());
+    }
+
+    @Test
+    public void testAdvantageWinForPlayerOne() {
+        Tennis tennis = new Tennis();
+        for (int i = 0; i < 3; i++)
+        {
+            tennis.score("player one");
+            tennis.score("player two");
+        }
+        tennis.score("player one");
+        tennis.score("player one");
+        assertEquals("Player one wins", tennis.getScore());
+    }
+
+    @Test
+    public void testAdvantageWinForPlayerTwo() {
+        Tennis tennis = new Tennis();
+        for (int i = 0; i < 3; i++)
+        {
+            tennis.score("player one");
+            tennis.score("player two");
+        }
+        tennis.score("player two");
+        tennis.score("player two");
+        assertEquals("Player two wins", tennis.getScore());
+    }
 }

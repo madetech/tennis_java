@@ -14,6 +14,8 @@ public class Tennis {
         if (Arrays.equals(this.score, new Integer[] {3,3})) return "Deuce";
         if (Arrays.equals(this.score, new Integer[] {4,3})) return "Advantage player one";
         if (Arrays.equals(this.score, new Integer[] {3,4})) return "Advantage player two";
+        if (this.score[0] == 4 || this.score[0] == 5) return "Player one wins";
+        if (this.score[1] == 4 || this.score[1] == 5) return "Player two wins";
         return String.format("%s-%s", this.writtenScore[this.score[0]], this.writtenScore[this.score[1]]);
     }
 
